@@ -31,5 +31,14 @@ public class UserController {
         return "login";
     }
 
-
+    @RequestMapping("/delete")
+    public String delete(@ModelAttribute User user, Model model) throws Exception {
+        User u = userService.login(user);
+        System.out.println(u);
+        if(u != null){
+            return "success";
+        }
+        model.addAttribute("false","登录失败");
+        return "login";
     }
+}
